@@ -3,6 +3,13 @@ import { Navigation } from "@/components/Navigation";
 import { ToolCard } from "@/components/ToolCard";
 import { PDFMerge } from "@/components/tools/PDFMerge";
 import { ImageToPDF } from "@/components/tools/ImageToPDF";
+import { PDFSplit } from "@/components/tools/PDFSplit";
+import { PDFViewer } from "@/components/tools/PDFViewer";
+import { PDFRotate } from "@/components/tools/PDFRotate";
+import { PDFExtract } from "@/components/tools/PDFExtract";
+import { TextToPDF } from "@/components/tools/TextToPDF";
+import { PDFCompress } from "@/components/tools/PDFCompress";
+import { PDFWatermark } from "@/components/tools/PDFWatermark";
 import { 
   Combine, 
   Split, 
@@ -102,6 +109,20 @@ const Index = () => {
         return <PDFMerge />;
       case 'imageToPdf':
         return <ImageToPDF />;
+      case 'split':
+        return <PDFSplit />;
+      case 'viewer':
+        return <PDFViewer />;
+      case 'rotate':
+        return <PDFRotate />;
+      case 'extract':
+        return <PDFExtract />;
+      case 'textToPdf':
+        return <TextToPDF />;
+      case 'compress':
+        return <PDFCompress />;
+      case 'watermark':
+        return <PDFWatermark />;
       default:
         return (
           <div className="text-center py-12">
