@@ -1,9 +1,13 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { FileUpload } from "@/components/FileUpload";
-import { useToast } from "@/components/ui/use-toast";
 import { PDFDocument } from "pdf-lib";
+
+export function downloadFile(blob: Blob, filename: string) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
 
 function downloadBlob(data: Uint8Array, filename: string) {
   const blob = new Blob([data], { type: "application/pdf" });
@@ -33,8 +37,6 @@ function parsePageSpec(spec: string, total: number): number[] {
   }
   return Array.from(set).sort((a, b) => a - b);
 }
-
-export const PDFSplitAlias = () => null; // placeholder to avoid unused issues if importing utilities elsewhere
 
 export const SimpleExtract = async (file: File, pageSpec: string) => {
   const ab = await file.arrayBuffer();

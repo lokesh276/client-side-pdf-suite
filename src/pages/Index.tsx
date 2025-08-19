@@ -10,6 +10,8 @@ import { PDFExtract } from "@/components/tools/PDFExtract";
 import { TextToPDF } from "@/components/tools/TextToPDF";
 import { PDFCompress } from "@/components/tools/PDFCompress";
 import { PDFWatermark } from "@/components/tools/PDFWatermark";
+import { PDFToWord } from "@/components/tools/PDFToWord";
+import { PDFToExcel } from "@/components/tools/PDFToExcel";
 import { 
   Combine, 
   Split, 
@@ -21,11 +23,13 @@ import {
   Download,
   Edit,
   Stamp,
-  ArrowLeft
+  ArrowLeft,
+  Table,
+  FileSpreadsheet
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-type Tool = 'merge' | 'split' | 'imageToPdf' | 'viewer' | 'rotate' | 'extract' | 'textToPdf' | 'compress' | 'editor' | 'watermark' | null;
+type Tool = 'merge' | 'split' | 'imageToPdf' | 'viewer' | 'rotate' | 'extract' | 'textToPdf' | 'compress' | 'editor' | 'watermark' | 'pdfToWord' | 'pdfToExcel' | null;
 
 const Index = () => {
   const [selectedTool, setSelectedTool] = useState<Tool>(null);
@@ -100,6 +104,20 @@ const Index = () => {
       description: 'Add text or image watermarks to PDFs',
       icon: Stamp,
       gradient: 'gradient-primary'
+    },
+    {
+      id: 'pdfToWord' as const,
+      title: 'PDF to Word',
+      description: 'Convert PDF files to editable Word documents',
+      icon: FileText,
+      gradient: 'gradient-primary'
+    },
+    {
+      id: 'pdfToExcel' as const,
+      title: 'PDF to Excel',
+      description: 'Extract content from PDFs to Excel spreadsheets',
+      icon: FileSpreadsheet,
+      gradient: 'gradient-primary'
     }
   ];
 
@@ -123,6 +141,10 @@ const Index = () => {
         return <PDFCompress />;
       case 'watermark':
         return <PDFWatermark />;
+      case 'pdfToWord':
+        return <PDFToWord />;
+      case 'pdfToExcel':
+        return <PDFToExcel />;
       default:
         return (
           <div className="text-center py-12">
