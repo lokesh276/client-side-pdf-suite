@@ -15,8 +15,8 @@ export const ToolCard = ({ title, description, icon: Icon, onClick, gradient = "
       onClick={onClick}
     >
       <div className="flex flex-col items-center text-center space-y-4">
-        <div className={`${gradient} p-4 rounded-xl group-hover:shadow-glow transition-smooth`}>
-          <Icon className="h-8 w-8 text-white" />
+        <div className={`bg-accent p-4 rounded-xl group-hover:shadow-card transition-smooth`}>
+          <Icon className="h-8 w-8 text-accent-foreground" />
         </div>
         
         <div>

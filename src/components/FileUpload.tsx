@@ -37,8 +37,8 @@ export const FileUpload = ({
     >
       <input {...getInputProps()} />
       <div className="flex flex-col items-center justify-center space-y-4">
-        <div className="gradient-primary p-4 rounded-full">
-          <Upload className="h-8 w-8 text-white" />
+        <div className="bg-primary p-4 rounded-full">
+          <Upload className="h-8 w-8 text-primary-foreground" />
         </div>
         
         <div className="text-center">
